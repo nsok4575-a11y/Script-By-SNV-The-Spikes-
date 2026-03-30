@@ -159,6 +159,32 @@ gg.clearResults()
 -- ===== SAVE RESULT (global) =====
 savedList = savedList or {}
 
+
+------------------------------------
+if start12 == 2 then
+gg.setRanges(gg.REGION_C_ALLOC)
+
+-- ===== CONFIG =====
+local offset = {0x60, 0x50}
+local value_offset1 = 0x60
+local value_offset2 = {0x50}
+
+local expected = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13}
+
+-- ===== INPUT =====
+local k2 = gg.prompt(
+  {
+    "បញ្ចូលលេខកីឡាករ\nខាងយើង [0;12]",
+    "ខាងគេ[-1;0]"
+  },
+  nil,
+  {"number","number"}
+)
+
+if not k2 then return end
+
+local character = tonumber(k2[1])
+local editValue = tonumber(k2[2])
 if not character or character < -100 or character > 12 then
   gg.alert("❌ លេខកីឡាករ មិនត្រឹមត្រូវ")
   return
@@ -225,18 +251,8 @@ else
       value = editValue
     })
   end
-end
-end
+
+
   gg.setValues(set)
   gg.toast("✅ កែប្រែរួចរាល់")
 end
-if start12 == 3 then
-  gg.setRanges(gg.REGION_C_ALLOC)
-
-  local Ball = gg.multiChoice(
-    {"WS", "MB", "SE", "🔙 Back"},
-    nil,
-    title
-  )
-
-  
