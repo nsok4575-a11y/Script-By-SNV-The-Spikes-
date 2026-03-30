@@ -266,7 +266,4 @@ if start12 == 3 then
     title
   )
 
-  if Ball == nil then
-    start()
-    return
-    end
+  
