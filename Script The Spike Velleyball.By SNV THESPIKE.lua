@@ -229,5 +229,17 @@ else
   gg.setValues(set)
   gg.toast("✅ កែប្រែរួចរាល់")
 end
+if start12 == 3 then
+  gg.setRanges(gg.REGION_C_ALLOC)
 
+  local Ball = gg.multiChoice(
+    {"WS", "MB", "SE", "🔙 Back"},
+    nil,
+    title
+  )
+
+  if Ball == nil then
+    start()
+    return
+    end
                 
