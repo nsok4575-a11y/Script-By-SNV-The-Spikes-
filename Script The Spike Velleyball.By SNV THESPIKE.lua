@@ -1,3 +1,4 @@
+    gg.alert("❌ មិនមានតម្លៃត្រូវគ្នា
 local datetime = os.date("%Y-%m-%d %H:%M:%S")
 local v = gg.getTargetInfo().versionName
 
