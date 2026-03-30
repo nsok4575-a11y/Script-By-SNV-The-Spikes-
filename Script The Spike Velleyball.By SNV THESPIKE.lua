@@ -1,7 +1,7 @@
 
 function start()
 
-    
+    gg.alert("❌ រកមិនឃើញ Address ត្រឹមត្រូវ")
 
   local start12 = gg.choice({
     
