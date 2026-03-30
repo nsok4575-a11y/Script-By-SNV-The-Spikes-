@@ -1,7 +1,13 @@
+local datetime = os.date("%Y-%m-%d %H:%M:%S")
+local v = gg.getTargetInfo().versionName
+
+local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
+              "\n📅 ថ្ងៃ ខែ ឆ្នាំ ម៉ោងប្រើប្រាស់៖ " .. datetime ..
+              "\nScript The Spike GG by សុខ អែណាវ🇰🇭🇰🇭"
 gg.setRanges(gg.REGION_C_ALLOC)
 gg.clearResults()
 
--- ===== CONFIG =====
+
 local offset = {-0x50,-0x30,0x20}
 local value_offset1 = -0x50
 local value_offset2 = {0xB0}
