@@ -257,3 +257,99 @@ else
   gg.toast("✅ កែប្រែរួចរាល់")
 end
 end
+if start12 == 3 then
+gg.setRanges(gg.REGION_C_ALLOC)
+
+-- ===== CONFIG =====
+local offset = {0x60, 0x50}
+local value_offset1 = 0x60
+local value_offset2 = {0x50}
+
+local expected = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13}
+
+-- ===== INPUT =====
+local k2 = gg.prompt(
+  {
+    "បញ្ចូលលេខកីឡាករ\nខាងយើង [0;12]",
+    "ខាងគេ[-1;0]"
+  },
+  nil,
+  {"number","number"}
+)
+
+if not k2 then return end
+
+local character = tonumber(k2[1])
+local editValue = tonumber(k2[2])
+if not character or character < -100 or character > 12 then
+  gg.alert("❌ លេខកីឡាករ មិនត្រឹមត្រូវ")
+  return
+end
+
+-- ===== SEARCH VALUE =====
+local searchValue = 795364
+
+-- ===== SEARCH (run only once) =====
+if #savedList == 0 then
+  gg.toast("🔍 កំពុងស្វែងរក...")
+
+  gg.searchNumber(searchValue, gg.TYPE_DWORD)
+  local results = gg.getResults(1000)
+  local valid = {}
+
+  for _, v in ipairs(results) do
+    local base = v.address
+
+    local v1 = gg.getValues({
+      {address = base + value_offset1, flags = gg.TYPE_DOUBLE}
+    })[1].value
+
+    local ok1 = false
+    for _, e in ipairs(expected) do
+      if v1 == e then ok1 = true break end
+    end
+
+    local ok2 = false
+    for _, o in ipairs(value_offset2) do
+      local v2 = gg.getValues({
+        {address = base + o, flags = gg.TYPE_DOUBLE}
+      })[1].value
+
+      for _, e in ipairs(expected) do
+        if v2 == e then ok2 = true break end
+      end
+    end
+
+    if ok1 and ok2 then
+      table.insert(valid, v)
+    end
+  end
+
+  savedList = valid
+else
+  gg.toast("⚡ ប្រើ address ចាស់")
+end
+
+-- ===== EDIT =====
+if #savedList == 0 then
+  gg.alert("❌ មិនមានតម្លៃត្រូវគ្នា")
+else
+  local set = {}
+  for _, v in ipairs(savedList) do
+    table.insert(set, {
+      address = v.address + offset[1],
+      flags = gg.TYPE_DOUBLE,
+      value = character
+    })
+    table.insert(set, {
+      address = v.address + offset[2],
+      flags = gg.TYPE_DOUBLE,
+      value = editValue
+    })
+  end
+
+
+  gg.setValues(set)
+  gg.toast("✅ កែប្រែរួចរាល់")
+end
+end
