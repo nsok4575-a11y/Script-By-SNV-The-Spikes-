@@ -1,4 +1,4 @@
-    gg.alert("❌ មិនមានតម្លៃត្រូវគ្នាer")
+    gg.alert("❌ មិនមានតម្លៃត្រូវគ្នាelr")
 local datetime = os.date("%Y-%m-%d %H:%M:%S")
 local v = gg.getTargetInfo().versionName
 
@@ -238,8 +238,4 @@ if start12 == 3 then
     title
   )
 
-  if Ball == nil then
-    start()
-    return
-    end
-                
+  
