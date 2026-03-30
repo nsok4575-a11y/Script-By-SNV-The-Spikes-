@@ -258,98 +258,130 @@ else
 end
 end
 if start12 == 3 then
-gg.setRanges(gg.REGION_C_ALLOC)
+  gg.setRanges(gg.REGION_C_ALLOC)
 
--- ===== CONFIG =====
-local offset = {0x60, 0x50}
-local value_offset1 = 0x60
-local value_offset2 = {0x50}
+  local Ball = gg.multiChoice(
+    {"WS", "MB", "SE", "🔙 Back"},
+    nil,
+    title
+  )
 
-local expected = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13}
+  if Ball == nil then
+    start()
+    return
+  end
 
--- ===== INPUT =====
-local k2 = gg.prompt(
-  {
-    "បញ្ចូលលេខកីឡាករ\nខាងយើង [0;12]",
-    "ខាងគេ[-1;0]"
-  },
-  nil,
-  {"number","number"}
-)
+-- =====================================================================
+-- 🏐 Mode 1 (WS)
+-- =====================================================================
+if Ball[1] then
+  local offset = {-0x90,-0x50,-0xA0,-0x20,-0x60,-0x80,0x20}
+  local value_offset1 = -0x90
+  local value_offset2 = {-0x50}
+  local value_offset3 = {-0xA0}
 
-if not k2 then return end
+  local expected_value2 = {
+    5,10,15,20,25,30,35,40,45,50,
+    55,60,65,70,75,80,85,90,95
+  }
 
-local character = tonumber(k2[1])
-local editValue = tonumber(k2[2])
-if not character or character < -100 or character > 12 then
-  gg.alert("❌ លេខកីឡាករ មិនត្រឹមត្រូវ")
-  return
-end
+  local expected_values = {
+    WS = {
+      1,5,8,10,13,16,21,24,27,30,33,36,39,42,45,
+      49,50,53,56,59,62,65,68,71,75,79,82,85,
+      88,91,94,98,101,104,107,109,111,112,115,
+      158,159,162,164,166,170,174,177,181,184,
+      187,190,193,198,203,205,207,210,212,217,
+      220,222,224,228,229,232,235,240,242,245,
+      246,248,251,254,257,259,262,264,267,271,
+      275,281,284,288,289,291,294,299
+    }
+  }
 
--- ===== SEARCH VALUE =====
-local searchValue = 795364
+  local k2 = gg.prompt({
+    "🕵️‍♂️ បញ្ចូលថាមពលកីឡាករ (ស្វែងរក)WS",
+    "1 Raul\n2 Nishikawa HS\n3 Ryhyeon\n4 Lucas\n5 Black Nishikawa\n6 Isabel\n7 Jeahyeon\n8 Siwoo Back\n9 Hongsi[1;9]",
+    "💥 កម្លាំងវាយប្រហារ[50;1000]",
+    "🦘 កម្លាំងលោត[50;200]"
+  }, nil, {"number","number","number","number"})
 
--- ===== SEARCH (run only once) =====
-if #savedList == 0 then
-  gg.toast("🔍 កំពុងស្វែងរក...")
+  if k2 then
+    local values = {
+      ["1"]=332,["2"]=248,["3"]=225,["4"]=284,
+      ["5"]=164,["6"]=245,["7"]=246,["8"]=325,["9"]=212
+    }
 
-  gg.searchNumber(searchValue, gg.TYPE_DWORD)
-  local results = gg.getResults(1000)
-  local valid = {}
+    local values1 = {
+      ["1"]=-1,["2"]=-1,["3"]=7,["4"]=-1,
+      ["5"]=-1,["6"]=-1,["7"]=-1,["8"]=-1,["9"]=14
+    }
 
-  for _, v in ipairs(results) do
-    local base = v.address
+    local searchValue = tonumber(k2[1])
+    local character = tostring(k2[2])
+    local editValue1 = tonumber(k2[3])
+    local editValue2 = tonumber(k2[4])
 
-    local v1 = gg.getValues({
-      {address = base + value_offset1, flags = gg.TYPE_DOUBLE}
-    })[1].value
-
-    local ok1 = false
-    for _, e in ipairs(expected) do
-      if v1 == e then ok1 = true break end
+    if not values[character] then
+      gg.alert("❌ អ្នកបានបញ្ចូលលេខខុសសម្រាប់កីឡាករ!")
+      gg.clearResults()
+      return
     end
 
-    local ok2 = false
-    for _, o in ipairs(value_offset2) do
-      local v2 = gg.getValues({
-        {address = base + o, flags = gg.TYPE_DOUBLE}
-      })[1].value
+    local newValues = {
+      values[character],
+      editValue1,
+      editValue2,
+      5,
+      40,
+     700,
+      values1[character]
+    }
 
-      for _, e in ipairs(expected) do
-        if v2 == e then ok2 = true break end
+    gg.clearResults()
+    gg.searchNumber(searchValue, gg.TYPE_DOUBLE)
+    local results = gg.getResults(1000)
+    local valid_results = {}
+
+    for _, v in ipairs(results) do
+      local base = v.address
+
+      local v1 = gg.getValues({{address=base+value_offset1, flags=gg.TYPE_DOUBLE}})[1].value
+      local m1=false
+      for _,e in ipairs(expected_values.WS) do if v1==e then m1=true break end end
+                local m2=false
+      for _,o in ipairs(value_offset2) do
+        local v2=gg.getValues({{address=base+o, flags=gg.TYPE_DOUBLE}})[1].value
+        for _,e in ipairs(expected_value2) do if v2==e then m2=true break end end
+        if m2 then break end
       end
+
+      local m3=false
+      for _,o in ipairs(value_offset3) do
+        local v3=gg.getValues({{address=base+o, flags=gg.TYPE_DOUBLE}})[1].value
+        for _,e in ipairs(expected_value2) do if v3==e then m3=true break end end
+        if m3 then break end
+      end
+
+      if m1 and m2 and m3 then table.insert(valid_results, v) end
     end
 
-    if ok1 and ok2 then
-      table.insert(valid, v)
+    if #valid_results==0 then
+      gg.alert("❌ មិនមានតម្លៃណាមួយត្រូវគ្នាទេ")
+    else
+      gg.loadResults(valid_results)
+      local set={}
+      for _,v in ipairs(valid_results) do
+        for i=1,#offset do
+          table.insert(set,{
+            address=v.address+offset[i],
+            flags=gg.TYPE_DOUBLE,
+            value=newValues[i]
+          })
+        end
+      end
+      gg.setValues(set)
+      gg.toast("✅ តម្លៃត្រូវបានកែប្រែរួច")
     end
   end
-
-  savedList = valid
-else
-  gg.toast("⚡ ប្រើ address ចាស់")
-end
-
--- ===== EDIT =====
-if #savedList == 0 then
-  gg.alert("❌ មិនមានតម្លៃត្រូវគ្នា")
-else
-  local set = {}
-  for _, v in ipairs(savedList) do
-    table.insert(set, {
-      address = v.address + offset[1],
-      flags = gg.TYPE_DOUBLE,
-      value = character
-    })
-    table.insert(set, {
-      address = v.address + offset[2],
-      flags = gg.TYPE_DOUBLE,
-      value = editValue
-    })
-  end
-
-
-  gg.setValues(set)
-  gg.toast("✅ កែប្រែរួចរាល់")
-end
-end
+  gg.clearResults()
+    end
