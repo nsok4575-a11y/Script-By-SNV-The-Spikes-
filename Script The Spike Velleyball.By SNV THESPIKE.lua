@@ -7,7 +7,7 @@ local v = gg.getTargetInfo().versionName
 
 local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
               "\n📅 ថ្ងៃ ខែ ឆ្នាំ ម៉ោងប្រើប្រាស់៖ " .. datetime ..
-              "\nScript The Spike GG by សុខ អែណាវ🇰🇭🇰🇭"
+              "\nScript The Spike GG by សុខ អែណា"
   local start12 = gg.choice({
     
     "⚙️ ឈ្នះដោយស្វ័យប្រវត្តិ ",
