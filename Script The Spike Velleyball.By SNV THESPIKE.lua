@@ -1,3 +1,5 @@
+
+    gg.alert("❌ មិនមានតម្លៃត្រូវគ្នា")
 gg.setRanges(gg.REGION_C_ALLOC)
 gg.clearResults()
 
