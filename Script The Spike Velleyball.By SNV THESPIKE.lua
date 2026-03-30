@@ -1,4 +1,4 @@
-    gg.alert("❌ មិនមានតម្លៃត្រូវគ្នាelr")
+    gg.alert("❌ មិនមានតម្លៃត្រូវគ្នាer")
 local datetime = os.date("%Y-%m-%d %H:%M:%S")
 local v = gg.getTargetInfo().versionName
 
@@ -225,7 +225,7 @@ else
       value = editValue
     })
   end
-
+end
   gg.setValues(set)
   gg.toast("✅ កែប្រែរួចរាល់")
 end
