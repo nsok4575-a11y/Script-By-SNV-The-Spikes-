@@ -1,4 +1,4 @@
--0x90 start()
+
 
     
 local datetime = os.date("%Y-%m-%d %H:%M:%S")
@@ -290,7 +290,7 @@ end
 -- 🏐 Mode 1 (WS)
 -- =====================================================================
 if Ball[1] then
-  local offset = {-0x20,-0xC0,-0x10,0x20,0x30,-0x80,0x20}
+  local offset = {-0x20,-0xC0,-0x10,0x20,0x30,0xD0,0x90}
   local value_offset1 = -0x90
   local value_offset2 = {-0x50}
   local value_offset3 = {-0xA0}
