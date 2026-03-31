@@ -290,11 +290,10 @@ end
 -- 🏐 Mode 1 (WS)
 -- =====================================================================
 if Ball[1] then
-  local offset = {-0x90,-0x50,-0xA0,-0x20,-0x60,-0x80,0x20}
-  local value_offset1 = -0x90
-  local value_offset2 = {-0x50}
-  local value_offset3 = {-0xA0}
-
+  local offset = {-0x20,0xC0,-0x10,0x20,0x30,0xD0,0x90}
+  local value_offset1 = -0x20
+  local value_offset2 = {0xC0}
+  local value_offset3 = {-0x10}
   local expected_value2 = {
     5,10,15,20,25,30,35,40,45,50,
     55,60,65,70,75,80,85,90,95
