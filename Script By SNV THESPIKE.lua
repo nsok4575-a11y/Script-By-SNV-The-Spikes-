@@ -1,3 +1,4 @@
+gg.alert("❌ មិនមានតម្លៃត្រូវគ្នាទេ!\nបង្កើន Power ឬ Jump ≥ 5")
 function start()
 
     
