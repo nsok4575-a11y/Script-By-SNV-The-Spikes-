@@ -402,10 +402,10 @@ if Ball[1] then
   gg.clearResults()
 end
 if Ball[2] then
-local offset = {-0x50,-0x40,-0x30,-0xF0,0x30,-0x10,0x60}
-  local value_offset1 = -0x100
-  local value_offset2 = {-0xE0}
-  local value_offset3 = {-0x90}
+local offset = {-0x50,-0x40,-0x30,-0x10,0x30,-0x10,0x60}
+  local value_offset1 = -0x50
+  local value_offset2 = {-0x40}
+  local value_offset3 = {-0x30}
 -- ✅ Expected values
 local expected_value2 = {
   5,10,15,20,25,30,35,40,45,50,
