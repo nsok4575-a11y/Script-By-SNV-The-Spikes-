@@ -9,7 +9,7 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
               "\nScript The Spike GG by សុខ អែណាវ🇰🇭🇰🇭"
   local start12 = gg.choice({
     
-    "⚙️1 ឈ្នះដោយស្វ័យប្រវត្តិ ",
+    "⚙️ ឈ្នះដោយស្វ័យប្រវត្តិ ",
             "⚙️ បន្ថែមពិន្ទុ ", 
     "⚙️ ប្តូកីឡាករ ",
         "⚙️ ប្ដូរស្គីនបាល់ ",
@@ -290,10 +290,10 @@ end
 -- 🏐 Mode 1 (WS)
 -- =====================================================================
 if Ball[1] then
-  local offset = {-0x90,-0x50,-0xA0,-0x20,-0x60,-0x80,0x20}
-  local value_offset1 = -0x90
-  local value_offset2 = {-0x50}
-  local value_offset3 = {-0xA0}
+  local offset = {-0x50,-0x40,-0x30,-0x20,-0x60,-0x80,0x20}
+  local value_offset1 = -0x50
+  local value_offset2 = {-0x40}
+  local value_offset3 = {-0x30}
 
   local expected_value2 = {
     5,10,15,20,25,30,35,40,45,50,
