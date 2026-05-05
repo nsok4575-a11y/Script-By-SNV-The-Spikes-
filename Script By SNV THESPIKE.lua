@@ -32,7 +32,7 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
 gg.setRanges(gg.REGION_OTHER)
 
 -- ===== VALUE (FIXED) =====
-local newvalue = {10, 1}
+local newvalue = {10, 1,0}
 
 -- ===== SAVE =====
 savedList = savedList or {}
@@ -62,7 +62,9 @@ local value_offset1 = -0x10
 -- ⭐ YOUR OFFSETS
 local offsets = {
   -0x2320,
-  0x20
+  0x20,
+ -0x14998           
+        
 }
 
 local expected_values = {12}
