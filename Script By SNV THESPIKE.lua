@@ -1068,6 +1068,93 @@ end
 
 end
   if start12 == 7 then
+        
+        gg.setRanges(gg.REGION_OTHER)
+
+        -- VALUE
+        local newvalue = {10, 1, 0}
+
+        -- SAVE
+        savedList = savedList or {}
+
+        -- FAST APPLY
+        if #savedList > 0 then
+            local set = {}
+            for i, addr in ipairs(savedList) do
+                local val = newvalue[(i - 1) % #newvalue + 1]
+
+                table.insert(set, {
+                    address = addr,
+                    flags = gg.TYPE_DOUBLE,
+                    value = val
+                })
+            end
+
+            gg.setValues(set)
+            gg.toast("⚡ កែរលឿន!")
+            return
+        end
+
+        -- SEARCH
+        local value_offset1 = -0x10
+
+        local offsets = {
+            -0x2320,
+            0x20,
+            -0x14998
+        }
+
+        local expected_values = {12}
+
+        gg.searchNumber("80", gg.TYPE_DOUBLE)
+        local results = gg.getResults(1000)
+
+        local valid_results = {}
+        savedList = {}
+
+        for _, v in ipairs(results) do
+            local base = v.address
+            local checkAddr = base + value_offset1
+
+            local val = gg.getValues({
+                {address = checkAddr, flags = gg.TYPE_DOUBLE}
+            })[1].value
+
+            for _, ev in ipairs(expected_values) do
+                if val == ev then
+                    table.insert(valid_results, v)
+
+                    -- SAVE MULTIPLE OFFSETS
+                    for _, off in ipairs(offsets) do
+                        table.insert(savedList, base + off)
+                    end
+
+                    break
+                end
+            end
+        end
+
+        if #valid_results == 0 then
+            gg.alert("❌ មិនមានតម្លៃត្រូវ")
+        else
+            gg.loadResults(valid_results)
+
+            local set = {}
+            for i, addr in ipairs(savedList) do
+                local val = newvalue[(i - 1) % #newvalue + 1]
+
+                table.insert(set, {
+                    address = addr,
+                    flags = gg.TYPE_DOUBLE,
+                    value = val
+                })
+            end
+
+            gg.setValues(set)
+            gg.toast("✅ កែរួច + save")
+        end
+        end
+        if start12 == 7 then
     gg.alert("👋 ចាកចេញពី Script!")
     os.exit()
   end
