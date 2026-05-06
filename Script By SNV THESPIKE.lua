@@ -1072,7 +1072,7 @@ end
         gg.setRanges(gg.REGION_OTHER)
 
         -- VALUE
-        local newvalue = {10, 1, 0}
+        local newvalue = {0}
 
         -- SAVE
         savedList = savedList or {}
