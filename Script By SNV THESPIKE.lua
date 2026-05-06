@@ -30,13 +30,13 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
   if start12 == 1 then
         gg.setRanges(gg.REGION_OTHER)
 
-local Bll = gg.multiChoice(
+local Ball = gg.multiChoice(
   {"V1", "V2"},
   nil,
   title
 )
 
-if Bll == nil then
+if Ball == nil then
   start()
   return
         end
