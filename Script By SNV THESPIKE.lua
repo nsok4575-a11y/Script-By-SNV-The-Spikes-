@@ -75,8 +75,8 @@ local value_offset1 = -0x10
 -- ⭐ YOUR OFFSETS
 local offsets = {
   -0x2320,
-  0x20,
- -0x14998           
+  0x20
+           
         
 }
 
