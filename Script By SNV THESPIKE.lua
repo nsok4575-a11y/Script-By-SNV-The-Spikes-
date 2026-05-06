@@ -1099,9 +1099,9 @@ end
         local value_offset1 = -0x10
 
         local offsets = {
-            -0x2320,
-            0x20,
-            -0x14998
+            0x7FB8
+            
+            
         }
 
         local expected_values = {12}
@@ -1154,7 +1154,7 @@ end
             gg.toast("✅ កែរួច + save")
         end
         end
-        if start12 == 7 then
+        if start12 == 8 then
     gg.alert("👋 ចាកចេញពី Script!")
     os.exit()
   end
