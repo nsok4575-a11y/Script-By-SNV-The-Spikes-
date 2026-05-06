@@ -136,7 +136,7 @@ end
  
 
     -- ================= V2 =================
-    if Bll[2] then
+    if Ball[2] then
         gg.setRanges(gg.REGION_OTHER)
 
         -- VALUE
