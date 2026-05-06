@@ -140,7 +140,7 @@ end
         gg.setRanges(gg.REGION_OTHER)
 
         -- VALUE
-        local newvalue = {0}
+        local newvalue = {0,0}
 
         -- SAVE
         savedList = savedList or {}
@@ -167,7 +167,7 @@ end
         local value_offset1 = -0x10
 
         local offsets = {
-            -0x1CD0
+            -0x1CD0,0x8048
             
 
         }
