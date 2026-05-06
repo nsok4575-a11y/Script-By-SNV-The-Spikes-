@@ -12,7 +12,7 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
               "\nScript The Spike GG by សុខ អែណាវ🇰🇭🇰🇭"
   local start12 = gg.choice({
     
-    "⚙️ ឈ្នះដោយស្វ័យប្រវត្តិ ",
+    "⚙️ AUTO WIN",
             "⚙️ បន្ថែមពិន្ទុ ", 
     "⚙️ ប្តូកីឡាករ ",
         "⚙️ ប្ដូរស្គីនបាល់ ",
@@ -134,7 +134,7 @@ end
 
 end
  if Ball[2] then
- gg.alert("👋 ចាកចេញពី Script!")
+ gg.alert("ហ្នឹងមកដល់ពេលឆាប់ៗនេះ។")
         end
     end
             
