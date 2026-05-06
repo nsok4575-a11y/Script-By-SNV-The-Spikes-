@@ -12,7 +12,7 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
               "\nScript The Spike GG by សុខ អែណាវ🇰🇭🇰🇭"
   local start12 = gg.choice({
     
-    "⚙️ ឈ្នះដោយស្វ័យប្រវត្តិ1 ",
+    "⚙️ ឈ្នះដោយស្វ័យប្រវត្តិ ",
             "⚙️ បន្ថែមពិន្ទុ ", 
     "⚙️ ប្តូកីឡាករ ",
         "⚙️ ប្ដូរស្គីនបាល់ ",
@@ -28,7 +28,20 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
 
   -- ===== AUTO WIN =====
   if start12 == 1 then
+        gg.setRanges(gg.REGION_OTHER)
 
+local Bll = gg.multiChoice(
+  {"V1", "V2"},
+  nil,
+  title
+)
+
+if Bll == nil then
+  start()
+  return
+        end
+        
+if Ball[1] then
 gg.setRanges(gg.REGION_OTHER)
 
 -- ===== VALUE (FIXED) =====
@@ -120,6 +133,11 @@ else
 end
 
 end
+ if Ball[2] then
+ gg.alert("👋 ចាកចេញពី Script!")
+        end
+    end
+            
 if start12 == 2 then
 gg.setRanges(gg.REGION_C_ALLOC)
 
