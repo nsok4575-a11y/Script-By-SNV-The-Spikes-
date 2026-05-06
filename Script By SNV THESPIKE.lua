@@ -133,18 +133,7 @@ else
 end
 
 end
- if start12 == 1 then
-    gg.setRanges(gg.REGION_OTHER)
-
-    local Bll = gg.multiChoice(
-        {"V1", "V2"},
-        nil,
-        title
-    )
-
-    if Bll == nil then
-        return
-    end
+ 
 
     -- ================= V2 =================
     if Bll[2] then
