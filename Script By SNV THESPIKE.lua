@@ -1,4 +1,135 @@
+gg.setVisible(false)
 
+local SAVE_FILE = "/sdcard/.saved_key.txt"
+
+-- 📅 ថ្ងៃផុតកំណត់
+local EXPIRE_DATE = "2026-06-01"
+
+-- 🔑 Key ត្រឹមត្រូវ
+local VALID_KEYS = {
+    "SCRIPT FREE",
+    "PRO999",
+    "FREE2026"
+}
+
+-- =========================
+-- Function ពិនិត្យថ្ងៃផុតកំណត់
+-- =========================
+function isExpired()
+    local today = os.date("%Y-%m-%d")
+    return today > EXPIRE_DATE
+end
+
+-- =========================
+-- Function ពិនិត្យ Key
+-- =========================
+function checkKey(input)
+    for i, v in ipairs(VALID_KEYS) do
+        if input == v then
+            return true
+        end
+    end
+    return false
+end
+
+-- =========================
+-- Save Key
+-- =========================
+function saveKey(key)
+    local file = io.open(SAVE_FILE, "w")
+    if file then
+        file:write(key)
+        file:close()
+    end
+end
+
+-- =========================
+-- Load Key
+-- =========================
+function loadKey()
+    local file = io.open(SAVE_FILE, "r")
+    if file then
+        local key = file:read("*a")
+        file:close()
+        return key
+    end
+    return nil
+end
+
+-- =========================
+-- Login System
+-- =========================
+function login()
+
+    -- ពិនិត្យថ្ងៃផុតកំណត់
+    if isExpired() then
+        gg.alert("⛔ Script Expired")
+        os.exit()
+    end
+
+    -- ពិនិត្យ key ដែលបាន save
+    local saved = loadKey()
+
+    if saved and checkKey(saved) then
+        gg.toast("✅ Auto Login Success")
+        return true
+    end
+
+    -- បញ្ចូល key
+    local input = gg.prompt(
+        {"🔑 Enter Key:"},
+        {""},
+        {"text"}
+    )
+
+    if input == nil then
+        os.exit()
+    end
+
+    local key = input[1]
+
+    if checkKey(key) then
+        saveKey(key)
+        gg.alert("✅ Login Success")
+        return true
+    else
+        gg.alert("❌ Wrong Key")
+        os.exit()
+    end
+end
+
+-- =========================
+-- MAIN MENU
+-- =========================
+function MAIN()
+    local menu = gg.choice({
+        "Feature 1",
+        "Feature 2",
+        "Exit"
+    }, nil, "My Script")
+
+    if menu == 1 then
+        gg.toast("Feature 1 ON")
+
+    elseif menu == 2 then
+        gg.toast("Feature 2 ON")
+
+    else
+        os.exit()
+    end
+end
+
+-- =========================
+-- START
+-- =========================
+login()
+
+while true do
+    if gg.isVisible(true) then
+        gg.setVisible(false)
+        MAIN()
+    end
+end
 
 function start()
 
