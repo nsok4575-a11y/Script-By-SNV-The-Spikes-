@@ -143,16 +143,8 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
               "\nScript The Spike GG by សុខ អែណាវ🇰🇭🇰🇭"
   local start12 = gg.choice({
     
-    "⚙️ AUTO WIN",
-            "⚙️ បន្ថែមពិន្ទុ ", 
-    "⚙️ ប្តូកីឡាករ ",
-        "⚙️ ប្ដូរស្គីនបាល់ ",
-        "⚙️ ការប៉ះបាល់",
-        "⚙️ការខូចខាត",
-   
-    
-
-    "🚪 ចាក់ចេញ"
+    "⚙️ AUTO WIN"
+            
   }, nil, title)
 
   if start12 == nil then return end
