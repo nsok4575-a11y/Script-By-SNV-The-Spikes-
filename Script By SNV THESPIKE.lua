@@ -259,7 +259,7 @@ end
  
 
     -- ================= V2 =================
-    if Ball[2] then
+    if Ball[3] then
         gg.setRanges(gg.REGION_OTHER)
 
         -- VALUE
@@ -347,7 +347,10 @@ end
     end
     end
     
-    
+    if Ball[2] then
+        gg.alert("ហ្នឹងមកដល់ក្នុងពេលឆាប់ៗនេះ")
+    end
+end
 if start12 == 2 then
 gg.setRanges(gg.REGION_C_ALLOC)
 
