@@ -10,7 +10,7 @@ local EXPIRE_DATE = "2026-06-01"
 
 -- 🔑 Key ត្រឹមត្រូវ
 local VALID_KEYS = {
-    "VIP123",
+    "SCRIPT FREE",
     "NAV2026",
     "FREEKEY"
 }
