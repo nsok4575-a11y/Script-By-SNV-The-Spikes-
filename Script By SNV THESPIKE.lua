@@ -97,7 +97,7 @@ function login()
         os.exit()
     end
 end
-end
+
 
 -- =========================
 -- MAIN MENU
@@ -346,7 +346,7 @@ end
             gg.toast("✅ កែរួច + save")
         end
     end
-    end
+    
     
     if Ball[2] then
         gg.alert("ហ្នឹងមកដល់ក្នុងពេលឆាប់ៗនេះ")
