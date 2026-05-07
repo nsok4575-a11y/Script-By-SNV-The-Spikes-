@@ -3,7 +3,7 @@ gg.setVisible(false)
 local SAVE_FILE = "/sdcard/.saved_key.txt"
 
 -- 📅 ថ្ងៃផុតកំណត់
-local EXPIRE_DATE = "2026-06-01"
+local EXPIRE_DATE = "2026-05-01"
 
 -- 🔑 Key ត្រឹមត្រូវ
 local VALID_KEYS = {
