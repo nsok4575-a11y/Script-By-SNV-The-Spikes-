@@ -103,20 +103,6 @@ end
 -- MAIN MENU
 -- =========================
 
-    end
-end
-
--- =========================
--- START
--- =========================
-login()
-
-while true do
-    if gg.isVisible(true) then
-        gg.setVisible(false)
-        MAIN()
-    end
-end
 
 function start()
 
