@@ -97,6 +97,7 @@ function login()
         os.exit()
     end
 end
+end
 
 -- =========================
 -- MAIN MENU
