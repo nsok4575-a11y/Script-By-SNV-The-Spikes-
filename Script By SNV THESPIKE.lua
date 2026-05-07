@@ -7,7 +7,7 @@ local EXPIRE_DATE = "2026-05-01"
 
 -- 🔑 Key ត្រឹមត្រូវ
 local VALID_KEYS = {
-    "SCRIPT FREE",
+
     "PRO999",
     "FREE2026"
 }
