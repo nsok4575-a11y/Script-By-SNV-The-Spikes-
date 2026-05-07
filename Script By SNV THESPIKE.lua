@@ -102,21 +102,7 @@ end
 -- =========================
 -- MAIN MENU
 -- =========================
-function MAIN()
-    local menu = gg.choice({
-        "Feature 1",
-        "Feature 2",
-        "Exit"
-    }, nil, "My Script")
 
-    if menu == 1 then
-        gg.toast("Feature 1 ON")
-
-    elseif menu == 2 then
-        gg.toast("Feature 2 ON")
-
-    else
-        os.exit()
     end
 end
 
