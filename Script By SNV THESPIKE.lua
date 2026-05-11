@@ -370,7 +370,7 @@ end
 -- 🏐 Mode 1 (WS)
 -- =====================================================================
 if Ball[1] then
-  local offset = {-0x10,-0xE0,-0x40,-0xB0,-0xA0}
+  local offset = {-0x10,-0xE0,-0x40,-0x50,-0xA0}
   local value_offset1 = -0x10
   local value_offset2 = {-0x40}
   local value_offset3 = {-0xE0}
@@ -482,7 +482,7 @@ if Ball[1] then
 end
 if Ball[2] then
 
-  local offset = {-0x10,-0xE0,-0x40,-0xB0,-0xA0}
+  local offset = {-0x10,-0xE0,-0x40,-0x50,-0xA0}
   local value_offset1 = -0x10
   local value_offset2 = {-0x40}
   local value_offset3 = {-0xE0}
