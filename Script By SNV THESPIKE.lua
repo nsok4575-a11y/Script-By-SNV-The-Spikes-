@@ -120,298 +120,132 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
   if start12 == nil then return end
 
   -- ===== AUTO WIN =====
-  if start12 == 1 then
-        gg.setRanges(gg.REGION_OTHER)
-
-local Ball = gg.multiChoice(
-  {"V1", "V2","V3"},
-  nil,
-  title
-)
-
-if Ball == nil then
-  start()
-  return
-        end
-        -- ================= V1 =================
-if Ball[1] then
-gg.setRanges(gg.REGION_OTHER)
-
--- ===== VALUE (FIXED) =====
-local newvalue = {0}
-
--- ===== SAVE =====
-savedList = savedList or {}
-
--- ===== FAST APPLY =====
-if #savedList > 0 then
-  local set = {}
-
-  for i, addr in ipairs(savedList) do
-    local val = newvalue[(i - 1) % #newvalue + 1]
-
-    table.insert(set, {
-      address = addr,
-      flags = gg.TYPE_DOUBLE,
-      value = val
-    })
-  end
-
-  gg.setValues(set)
-  gg.toast("⚡ កែរលឿន!")
-  return
-end
-
--- ===== FIRST SEARCH =====
-local value_offset1 = -0x10
-
--- ⭐ YOUR OFFSETS
-local offsets = {
-  0x7D98
-                
   
-           
-        
-}
+    if start12 == 1 then
+    gg.setRanges(gg.REGION_OTHER)
 
-local expected_values = {12}
+    local Ball = gg.multiChoice(
+        {"V1", "V2", "V3"},
+        nil,
+        title
+    )
 
-gg.searchNumber("80", gg.TYPE_DOUBLE)
-local results = gg.getResults(1000)
-
-local valid_results = {}
-savedList = {}
-
-for _, v in ipairs(results) do
-  local base = v.address
-  local checkAddr = base + value_offset1
-
-  local val = gg.getValues({
-    {address = checkAddr, flags = gg.TYPE_DOUBLE}
-  })[1].value
-
-  for _, ev in ipairs(expected_values) do
-    if val == ev then
-      table.insert(valid_results, v)
-
-      -- SAVE MULTIPLE OFFSETS
-      for _, off in ipairs(offsets) do
-        table.insert(savedList, base + off)
-      end
-
-      break
+    if Ball == nil then
+        start()
+        return
     end
-  end
-end
 
-if #valid_results == 0 then
-  gg.alert("❌ មិនមានតម្លៃត្រូវ")
-else
-  gg.loadResults(valid_results)
+    -- ===== DEFAULT =====
+    local offsets = {}
+    local newvalue = {}
+    local message = ""
 
-  -- APPLY
-  local set = {}
+    -- ===== SELECT MODE =====
+    if Ball[1] then
+        offsets = {0x7D98}
+        newvalue = {0}
+        message = "Colosseum❌"
+    end
 
-  for i, addr in ipairs(savedList) do
-    local val = newvalue[(i - 1) % #newvalue + 1]
-
-    table.insert(set, {
-      address = addr,
-      flags = gg.TYPE_DOUBLE,
-      value = val
-    })
-  end
-
-  gg.setValues(set)
-  gg.toast("✅ កែរួច + save")
-end
-
-end
- 
-
-    -- ================= V2 =================
     if Ball[2] then
-        gg.setRanges(gg.REGION_OTHER)
-
-        -- VALUE
-        local newvalue = {0,0}
-
-        -- SAVE
-        savedList = savedList or {}
-
-        -- FAST APPLY
-        if #savedList > 0 then
-            local set = {}
-            for i, addr in ipairs(savedList) do
-                local val = newvalue[(i - 1) % #newvalue + 1]
-
-                table.insert(set, {
-                    address = addr,
-                    flags = gg.TYPE_DOUBLE,
-                    value = val
-                })
-            end
-
-            gg.setValues(set)
-            gg.toast("⚡ កែរលឿន!")
-            return
-        end
-
-        -- SEARCH
-        local value_offset1 = -0x10
-
-        local offsets = {
-            -0x1CD0,0x8048
-            
-
-        }
-
-        local expected_values = {12}
-
-        gg.searchNumber("80", gg.TYPE_DOUBLE)
-        local results = gg.getResults(1000)
-
-        local valid_results = {}
-        savedList = {}
-
-        for _, v in ipairs(results) do
-            local base = v.address
-            local checkAddr = base + value_offset1
-
-            local val = gg.getValues({
-                {address = checkAddr, flags = gg.TYPE_DOUBLE}
-            })[1].value
-
-            for _, ev in ipairs(expected_values) do
-                if val == ev then
-                    table.insert(valid_results, v)
-
-                    -- SAVE MULTIPLE OFFSETS
-                    for _, off in ipairs(offsets) do
-                        table.insert(savedList, base + off)
-                    end
-
-                    break
-                end
-            end
-        end
-
-        if #valid_results == 0 then
-            gg.alert("❌ មិនមានតម្លៃត្រូវ")
-        else
-            gg.loadResults(valid_results)
-
-            local set = {}
-            for i, addr in ipairs(savedList) do
-                local val = newvalue[(i - 1) % #newvalue + 1]
-
-                table.insert(set, {
-                    address = addr,
-                    flags = gg.TYPE_DOUBLE,
-                    value = val
-                })
-            end
-
-            gg.setValues(set)
-            gg.toast("✅ កែរួច + save")
-        end
+        offsets = {-0x1CD0, 0x8048}
+        newvalue = {0, 0}
+        message = "Mode V2 Done ✅"
     end
-    
-    
+
     if Ball[3] then
-        gg.setRanges(gg.REGION_OTHER)
-
--- ===== VALUE (FIXED) =====
-local newvalue = {10}
-
--- ===== SAVE =====
-savedList = savedList or {}
-
--- ===== FAST APPLY =====
-if #savedList > 0 then
-  local set = {}
-
-  for i, addr in ipairs(savedList) do
-    local val = newvalue[(i - 1) % #newvalue + 1]
-
-    table.insert(set, {
-      address = addr,
-      flags = gg.TYPE_DOUBLE,
-      value = val
-    })
-  end
-
-  gg.setValues(set)
-  gg.toast("⚡ កែរលឿន!")
-  return
-end
-
--- ===== FIRST SEARCH =====
-local value_offset1 = -0x10
-
--- ⭐ YOUR OFFSETS
-local offsets = {
-  -0x2320
-                
-                
-  
-           
-        
-}
-
-local expected_values = {12}
-
-gg.searchNumber("80", gg.TYPE_DOUBLE)
-local results = gg.getResults(1000)
-
-local valid_results = {}
-savedList = {}
-
-for _, v in ipairs(results) do
-  local base = v.address
-  local checkAddr = base + value_offset1
-
-  local val = gg.getValues({
-    {address = checkAddr, flags = gg.TYPE_DOUBLE}
-  })[1].value
-
-  for _, ev in ipairs(expected_values) do
-    if val == ev then
-      table.insert(valid_results, v)
-
-      -- SAVE MULTIPLE OFFSETS
-      for _, off in ipairs(offsets) do
-        table.insert(savedList, base + off)
-      end
-
-      break
+        offsets = {-0x2320}
+        newvalue = {10}
+        message = "Mode V3 Done 🔥"
     end
-  end
-end
 
-if #valid_results == 0 then
-  gg.alert("❌ មិនមានតម្លៃត្រូវ")
-else
-  gg.loadResults(valid_results)
+    -- ===== SAVE =====
+    savedList = savedList or {}
 
-  -- APPLY
-  local set = {}
+    -- ===== FAST APPLY =====
+    if #savedList > 0 then
+        local set = {}
 
-  for i, addr in ipairs(savedList) do
-    local val = newvalue[(i - 1) % #newvalue + 1]
+        for i, addr in ipairs(savedList) do
+            local val = newvalue[(i - 1) % #newvalue + 1]
 
-table.insert(set, {
-      address = addr,
-      flags = gg.TYPE_DOUBLE,
-      value = val
-    })
-  end
-
-  gg.setValues(set)
-  gg.toast("✅ កែរួច + save")
-end
-
+            table.insert(set, {
+                address = addr,
+                flags = gg.TYPE_DOUBLE,
+                value = val
+            })
         end
+
+        gg.setValues(set)
+        gg.toast("⚡ កែរលឿន!")
+
+        if message ~= "" then
+            gg.alert(message)
+        end
+
+        return
+    end
+
+    -- ===== SEARCH =====
+    local value_offset1 = -0x10
+    local expected_values = {12}
+
+    gg.searchNumber("80", gg.TYPE_DOUBLE)
+    local results = gg.getResults(1000)
+
+    local valid_results = {}
+    savedList = {}
+
+    for _, v in ipairs(results) do
+        local base = v.address
+        local checkAddr = base + value_offset1
+
+        local val = gg.getValues({
+            {address = checkAddr, flags = gg.TYPE_DOUBLE}
+        })[1].value
+
+        for _, ev in ipairs(expected_values) do
+            if val == ev then
+                table.insert(valid_results, v)
+
+                for _, off in ipairs(offsets) do
+                    table.insert(savedList, base + off)
+                end
+
+                break
+            end
+        end
+    end
+
+    if #valid_results == 0 then
+        gg.alert("❌ មិនមានតម្លៃត្រូវ")
+    else
+        gg.loadResults(valid_results)
+
+        local set = {}
+
+        for i, addr in ipairs(savedList) do
+            local val = newvalue[(i - 1) % #newvalue + 1]
+
+            table.insert(set, {
+                address = addr,
+                flags = gg.TYPE_DOUBLE,
+                value = val
+            })
+        end
+
+        gg.setValues(set)
+        gg.toast("✅ កែរួច + save")
+
+        if message ~= "" then
+            gg.alert(message)
+        end
+    end
+    end
+    
+
+                    
+      
 if start12 == 2 then
 gg.setRanges(gg.REGION_C_ALLOC)
 
