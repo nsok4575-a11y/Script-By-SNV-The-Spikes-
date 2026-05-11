@@ -173,12 +173,12 @@ local m1 = " "
                 flags = gg.TYPE_DOUBLE,
                 value = val
             })
-        end
+        
 
         gg.setValues(set)
         gg.toast("⚡ កែរលឿន!")
-        return
-    end
+        
+    
 
     -- ===== SEARCH =====
     local value_offset1 = -0x10
