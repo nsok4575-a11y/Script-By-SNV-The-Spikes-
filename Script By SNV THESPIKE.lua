@@ -240,7 +240,9 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
         if message ~= "" then
             gg.alert(message)
         end
-    
+        end
+    end
+end
     
     
 
