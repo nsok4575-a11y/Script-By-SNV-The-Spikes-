@@ -548,8 +548,7 @@ local expected_value2 = {
       editValue1,  
       editValue2,  
       5,  
-      editValue1,  
-      editValue2,
+      
       values1[character]
     }  
 
