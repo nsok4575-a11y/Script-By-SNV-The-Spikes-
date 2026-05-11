@@ -120,8 +120,7 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
   if start12 == nil then return end
 
   -- ===== AUTO WIN =====
-  
-    if start12 == 1 then
+  if start12 == 1 then
     gg.setRanges(gg.REGION_OTHER)
 
     local Ball = gg.multiChoice(
@@ -138,25 +137,23 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
     -- ===== DEFAULT =====
     local offsets = {}
     local newvalue = {}
-    local message = ""
-
+    
+local m1 = " "
     -- ===== SELECT MODE =====
     if Ball[1] then
         offsets = {0x7D98}
         newvalue = {0}
-        message = "Colosseum❌"
+        m1 = "Colosseum"
     end
 
     if Ball[2] then
         offsets = {-0x1CD0, 0x8048}
         newvalue = {0, 0}
-        message = "Mode V2 Done ✅"
     end
 
     if Ball[3] then
         offsets = {-0x2320}
         newvalue = {10}
-        message = "Mode V3 Done 🔥"
     end
 
     -- ===== SAVE =====
@@ -178,11 +175,6 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
 
         gg.setValues(set)
         gg.toast("⚡ កែរលឿន!")
-
-        if message ~= "" then
-            gg.alert(message)
-        end
-
         return
     end
 
@@ -236,17 +228,13 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
 
         gg.setValues(set)
         gg.toast("✅ កែរួច + save")
-
+        gg.alert(m1)
+    end
+end
+            
         
-            gg.alert(message)
-        end
-        end
     
-
-    
-    
-
-                    
+  
       
 if start12 == 2 then
 gg.setRanges(gg.REGION_C_ALLOC)
