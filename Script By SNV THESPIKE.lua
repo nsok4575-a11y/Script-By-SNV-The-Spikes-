@@ -396,7 +396,7 @@ if Ball[1] then
   local k2 = gg.prompt({
     "🕵️‍♂️ បញ្ចូលថាមពលកីឡាករ (ស្វែងរក)WS",
     "1 Raul\n2 Nishikawa HS\n3 Ryhyeon\n4 Lucas\n5 Black Nishikawa\n6 Isabel\n7 Jeahyeon\n8 Siwoo Back\n9 Hongsi\n10 Jenny[1;10]",
-    "💥 កម្លាំងវាយប្រហារ[50;1000]",
+    "💥 កម្លាំងវាយប្រហារ[50;10000]",
     "🦘 កម្លាំងលោត[50;200]"
   }, nil, {"number","number","number","number"})
 
