@@ -113,7 +113,9 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
               "\nScript The Spike GG by សុខ អែណាវ🇰🇭🇰🇭"
   local start12 = gg.choice({
     
-    "⚙️ AUTO WIN"
+    "⚙️ AUTO WIN",
+     "⚙️ADD SCORE ",
+      "CHANGE PLAYER "    
             
   }, nil, title)
 
@@ -394,7 +396,7 @@ if Ball[1] then
 
   local k2 = gg.prompt({
     "🕵️‍♂️ បញ្ចូលថាមពលកីឡាករ (ស្វែងរក)WS",
-    "1 Raul\n2 Nishikawa HS\n3 Ryhyeon\n4 Lucas\n5 Black Nishikawa\n6 Isabel\n7 Jeahyeon\n8 Siwoo Back\n9 Hongsi[1;10]",
+    "1 Raul\n2 Nishikawa HS\n3 Ryhyeon\n4 Lucas\n5 Black Nishikawa\n6 Isabel\n7 Jeahyeon\n8 Siwoo Back\n9 Hongsi\n10 Jenny[1;10]",
     "💥 កម្លាំងវាយប្រហារ[50;1000]",
     "🦘 កម្លាំងលោត[50;200]"
   }, nil, {"number","number","number","number"})
@@ -402,12 +404,12 @@ if Ball[1] then
   if k2 then
     local values = {
       ["1"]=332,["2"]=248,["3"]=225,["4"]=284,
-      ["5"]=164,["6"]=245,["7"]=246,["8"]=325,["9"]=212,["10"]=352
+      ["5"]=164,["6"]=245,["7"]=246,["8"]=325,["9"]=212,["10"]=251
     }
 
     local values1 = {
       ["1"]=-1,["2"]=-1,["3"]=7,["4"]=-1,
-      ["5"]=-1,["6"]=-1,["7"]=-1,["8"]=-1,["9"]=14
+      ["5"]=-1,["6"]=-1,["7"]=-1,["8"]=-1,["9"]=14,["10"]=17
     }
 
     local searchValue = tonumber(k2[1])
@@ -480,10 +482,12 @@ if Ball[1] then
   gg.clearResults()
 end
 if Ball[2] then
-local offset = {-0x100,-0xE0,-0x90,-0xF0,-0xC0,-0xA0,-0x70}
-  local value_offset1 = -0x100
-  local value_offset2 = {-0xE0}
-  local value_offset3 = {-0x90}
+if Ball[1] then
+  local offset = {-0x10,-0x40,-0xE0,-0xB0,-0xA0}
+  local value_offset1 = -0x10
+  local value_offset2 = {-0x40}
+  local value_offset3 = {-0xE0}
+
 -- ✅ Expected values
 local expected_value2 = {
   5,10,15,20,25,30,35,40,45,50,
@@ -522,7 +526,7 @@ local expected_value2 = {
     }
     local values1 = {
       ["1"] = -1, -- Raul
-      ["2"] = -1,  -- Nishikawa HS
+      ["2"] = 18,  -- Nishikawa HS
       ["3"] = 1,  -- Ryuhyeon
       ["4"] = -1,  -- Lucas
       ["5"] = -1,  -- Black Nishikawa
