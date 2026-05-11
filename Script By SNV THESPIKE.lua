@@ -143,9 +143,9 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
 local m1 = " "
     -- ===== SELECT MODE =====
     if Ball[1] then
-        offsets = {0x7D98}
+        offsets = {0x8198}
         newvalue = {0}
-        m1 = "Colosseum"
+        m1 = "Colosseum❌"
     end
 
     if Ball[2] then
