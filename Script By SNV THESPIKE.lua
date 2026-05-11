@@ -237,7 +237,7 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
         gg.setValues(set)
         gg.toast("✅ កែរួច + save")
 
-        if message ~= "" then
+        
             gg.alert(message)
         end
         end
