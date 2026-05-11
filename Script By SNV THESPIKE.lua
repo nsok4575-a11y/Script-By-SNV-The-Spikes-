@@ -318,11 +318,11 @@ end
     end
     
     
-    if Ball[2] then
+    if Ball[3] then
         gg.setRanges(gg.REGION_OTHER)
 
 -- ===== VALUE (FIXED) =====
-local newvalue = {0}
+local newvalue = {10}
 
 -- ===== SAVE =====
 savedList = savedList or {}
