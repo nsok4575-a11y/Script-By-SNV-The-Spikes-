@@ -482,7 +482,7 @@ if Ball[1] then
   gg.clearResults()
 end
 if Ball[2] then
-if Ball[1] then
+
   local offset = {-0x10,-0x40,-0xE0,-0xB0,-0xA0}
   local value_offset1 = -0x10
   local value_offset2 = {-0x40}
