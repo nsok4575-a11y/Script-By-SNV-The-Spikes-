@@ -124,7 +124,7 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
         gg.setRanges(gg.REGION_OTHER)
 
 local Ball = gg.multiChoice(
-  {"V1", "V2"},
+  {"V1", "V2","V3"},
   nil,
   title
 )
