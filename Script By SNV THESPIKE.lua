@@ -230,8 +230,7 @@ local m1 = " "
         gg.toast("✅ កែរួច + save")
         gg.alert(m1)
     end
-end
-end
+
             
         
     
