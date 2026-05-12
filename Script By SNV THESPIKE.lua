@@ -119,7 +119,8 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
       "⚙️SKIN BALL",
         "⚙️HIT",
             "⚙️DIFFERENT",
-            "?"
+            "⚙️FEVER",
+            "EXIT"
             
   }, nil, title)
 
