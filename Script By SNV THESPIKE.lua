@@ -115,7 +115,11 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
     
     "⚙️ AUTO WIN",
      "⚙️ADD SCORE ",
-     "⚙️CHANGE PLAYER "    
+     "⚙️CHANGE PLAYER ",
+      "⚙️SKIN BALL",
+        "⚙️HIT",
+            "⚙️DIFFERENT",
+            "?"
             
   }, nil, title)
 
@@ -149,7 +153,7 @@ local m1 = " "
     end
 
     if Ball[2] then
-        offsets = {-0x1CD0, 0x8048}
+        offsets = {-0x1CD0, 0x8448}
         newvalue = {0, 0}
     end
 
