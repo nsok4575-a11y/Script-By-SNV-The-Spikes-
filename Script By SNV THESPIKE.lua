@@ -1084,70 +1084,72 @@ end
 
 end
     if start12 == 7 then
-        
-        
-        -- SEARCH
-        local value_offset1 = -0x10
 
-        local offsets = {
-            0x83B8
-            
-            
-        }
+    gg.setRanges(gg.REGION_OTHER)
 
-        local expected_values = {12}
+    -- VALUE (ត្រូវដាក់!)
+    local newvalue = {0}
 
-        gg.searchNumber("80", gg.TYPE_DOUBLE)
-        local results = gg.getResults(1000)
+    -- SEARCH
+    local value_offset1 = -0x10
 
-        local valid_results = {}
-        savedList = {}
+    local offsets = {
+        0x83B8
+    }
 
-        for _, v in ipairs(results) do
-            local base = v.address
-            local checkAddr = base + value_offset1
+    local expected_values = {12}
 
-            local val = gg.getValues({
-                {address = checkAddr, flags = gg.TYPE_DOUBLE}
-            })[1].value
+    gg.searchNumber("80", gg.TYPE_DOUBLE)
+    local results = gg.getResults(1000)
 
-            for _, ev in ipairs(expected_values) do
-                if val == ev then
-                    table.insert(valid_results, v)
+    local valid_results = {}
+    local savedList = {}
 
-                    -- SAVE MULTIPLE OFFSETS
-                    for _, off in ipairs(offsets) do
-                        table.insert(savedList, base + off)
-                    end
+    for _, v in ipairs(results) do
+        local base = v.address
+        local checkAddr = base + value_offset1
 
-                    break
+        local val = gg.getValues({
+            {address = checkAddr, flags = gg.TYPE_DOUBLE}
+        })[1].value
+
+        for _, ev in ipairs(expected_values) do
+            -- ប្រើ range បន្តិច (ជៀសវាង float error)
+            if math.abs(val - ev) < 0.01 then
+                table.insert(valid_results, v)
+
+                -- SAVE OFFSETS
+                for _, off in ipairs(offsets) do
+                    table.insert(savedList, base + off)
                 end
+
+                break
             end
         end
-
-        if #valid_results == 0 then
-            gg.alert("❌ មិនមានតម្លៃត្រូវ")
-        else
-            gg.loadResults(valid_results)
-
-            local set = {}
-            for i, addr in ipairs(savedList) do
-                local val = newvalue[(i - 1) % #newvalue + 1]
-
-                table.insert(set, {
-                    address = addr,
-                    flags = gg.TYPE_DOUBLE,
-                    value = val
-                })
-            end
-
-            gg.setValues(set)
-            gg.toast("✅ កែរួច + save")
-            gg.clearResults()  
-        end
-            gg.clearResults()  
     end
-  
+
+    if #valid_results == 0 then
+        gg.alert("❌ មិនមានតម្លៃត្រូវ")
+    else
+        gg.loadResults(valid_results)
+
+        local set = {}
+        for i, addr in ipairs(savedList) do
+            local val = newvalue[(i - 1) % #newvalue + 1]
+
+            table.insert(set, {
+                address = addr,
+                flags = gg.TYPE_DOUBLE,
+                value = val
+            })
+        end
+
+        gg.setValues(set)
+        gg.toast("✅ កែរួច + save")
+    end
+
+    gg.clearResults()
+end
         if start12 == 8 then
     gg.alert("👋 ចាកចេញពី Script!")
     os.exit()
