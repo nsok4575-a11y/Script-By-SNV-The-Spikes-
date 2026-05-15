@@ -1091,6 +1091,12 @@ end
         gg.setRanges(gg.REGION_OTHER)
 
         -- VALUE
+        local value_offset1 = -0x10
+
+        local offsets = {0x83B8}
+            
+            
+ }
         local newvalue = {0}
 
         -- SAVE
@@ -1115,13 +1121,8 @@ end
         end
 
         -- SEARCH
-        local value_offset1 = -0x10
-
-        local offsets = {
-            0x83B8
+        
             
-            
-        }
 
         local expected_values = {12}
 
