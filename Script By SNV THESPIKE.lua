@@ -1085,32 +1085,7 @@ end
 end
     if start12 == 7 then
         
-        gg.setRanges(gg.REGION_OTHER)
-
-        -- VALUE
-        local newvalue = {0}
-
-        -- SAVE
-        savedList = savedList or {}
-
-        -- FAST APPLY
-        if #savedList > 0 then
-            local set = {}
-            for i, addr in ipairs(savedList) do
-                local val = newvalue[(i - 1) % #newvalue + 1]
-
-                table.insert(set, {
-                    address = addr,
-                    flags = gg.TYPE_DOUBLE,
-                    value = val
-                })
-            end
-
-            gg.setValues(set)
-            gg.toast("⚡ កែរលឿន!")
-            return
-        end
-
+        
         -- SEARCH
         local value_offset1 = -0x10
 
@@ -1168,7 +1143,9 @@ end
 
             gg.setValues(set)
             gg.toast("✅ កែរួច + save")
+            gg.clearResults()  
         end
+            gg.clearResults()  
     end
   
         if start12 == 8 then
