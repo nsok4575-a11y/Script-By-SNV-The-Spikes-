@@ -1115,7 +1115,7 @@ end
         local value_offset1 = -0x10
 
         local offsets = {
-            0x7FB8
+            0x83B8
             
             
         }
