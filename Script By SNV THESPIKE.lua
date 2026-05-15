@@ -1,7 +1,4 @@
---========================================
---   SIMPLE KEY SYSTEM + EXPIRE DATE
---   Save Key Auto Login
---========================================
+
 
 local SAVE_FILE = "/sdcard/.saved_key.txt"
 
