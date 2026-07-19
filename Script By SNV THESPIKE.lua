@@ -1,6 +1,4 @@
-local function deleteKey()
-    os.remove(SAVE_FILE)
-end
+
 
 local SAVE_FILE = "/sdcard/.saved_key.txt"
 
