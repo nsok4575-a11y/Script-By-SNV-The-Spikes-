@@ -1,10 +1,10 @@
-local SAVE_FILE = "/sdcard/.saved_key.txt"
+        local SAVE_FILE = "/sdcard/.saved_key.txt"
 
 --==============================
 -- VALID KEYS + EXPIRE DATE
 --==============================
 local VALID_KEYS = {
-    ["SCRIPT FREE"] = "2025-02-01",
+    ["SCRIPT FREE"] = "2026-08-01",
     ["NAV2026"] = "2026-09-01",
     ["FREEKEY"] = "2026-10-01"
 }
@@ -112,8 +112,6 @@ end
 -- YOUR SCRIPT START HERE
 --==============================
 gg.toast("🚀 Script Loaded Successfully!")
-
---========================================
 -- ដាក់ SCRIPT របស់អ្នកនៅខាងក្រោម
 --========================================
 -- =========================
