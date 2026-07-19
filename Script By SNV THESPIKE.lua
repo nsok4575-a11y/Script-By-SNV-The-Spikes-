@@ -3,13 +3,10 @@
 local SAVE_FILE = "/sdcard/.saved_key.txt"
 
 -- 📅 ថ្ងៃផុតកំណត់
-local EXPIRE_DATE = "2026-09-01"
-
--- 🔑 Key ត្រឹមត្រូវ
 local VALID_KEYS = {
-    "SCRIPT FREE",
-    "NAV2026",
-    "FREEKEY"
+    ["SCRIPT FREE"] = "2026-08-01",
+    ["NAV2026"] = "2026-09-01",
+    ["FREEKEY"] = "2026-10-01"
 }
 
 --==============================
