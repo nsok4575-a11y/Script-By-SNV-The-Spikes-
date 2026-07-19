@@ -1,37 +1,40 @@
-
-
 local SAVE_FILE = "/sdcard/.saved_key.txt"
 
--- 📅 ថ្ងៃផុតកំណត់
+--==============================
+-- VALID KEYS + EXPIRE DATE
+--==============================
 local VALID_KEYS = {
-    ["SCRIPT FREE"] = "2026-06-01",
+    ["SCRIPT FREE"] = "2026-08-01",
     ["NAV2026"] = "2026-09-01",
     ["FREEKEY"] = "2026-10-01"
 }
 
 --==============================
--- CHECK EXPIRE DATE
+-- DELETE SAVED KEY
 --==============================
-local function isExpired()
-    local today = os.date("%Y-%m-%d")
-    return today > EXPIRE_DATE
-end
-
-if isExpired() then
-    gg.alert("⛔ Script Expired!\nExpire Date : "..EXPIRE_DATE)
-    os.exit()
+local function deleteSavedKey()
+    os.remove(SAVE_FILE)
 end
 
 --==============================
--- CHECK VALID KEY
+-- CHECK VALID KEY + EXPIRE
 --==============================
-local function isValidKey(input)
-    for i,v in ipairs(VALID_KEYS) do
-        if input == v then
-            return true
-        end
+local function isValidKey(key)
+    local expire = VALID_KEYS[key]
+
+    if expire == nil then
+        return false
     end
-    return false
+
+    local today = os.date("%Y-%m-%d")
+
+    if today > expire then
+        deleteSavedKey()
+        gg.alert("⛔ Key Expired!\n\nExpire Date : "..expire.."\n\nPlease Enter New Key.")
+        return false
+    end
+
+    return true
 end
 
 --==============================
@@ -39,11 +42,18 @@ end
 --==============================
 local function readSavedKey()
     local file = io.open(SAVE_FILE, "r")
+
     if file then
         local key = file:read("*a")
         file:close()
+
+        if key then
+            key = key:gsub("%s+$", "")
+        end
+
         return key
     end
+
     return nil
 end
 
@@ -52,6 +62,7 @@ end
 --==============================
 local function saveKey(key)
     local file = io.open(SAVE_FILE, "w")
+
     if file then
         file:write(key)
         file:close()
@@ -64,28 +75,43 @@ end
 local savedKey = readSavedKey()
 
 if savedKey and isValidKey(savedKey) then
+
     gg.toast("✅ Auto Login Success")
+
 else
-    local input = gg.prompt(
-        {"🔑 Enter Key :"},
-        {""},
-        {"text"}
-    )
 
-    if input == nil then
-        os.exit()
+    deleteSavedKey()
+
+    while true do
+
+        local input = gg.prompt(
+            {"🔑 Enter Key :"},
+            {""},
+            {"text"}
+        )
+
+        if input == nil then
+            os.exit()
+        end
+
+        local key = input[1]
+
+        if isValidKey(key) then
+            saveKey(key)
+            gg.alert("✅ Login Success\n\nKey Saved Successfully!")
+            break
+        else
+            gg.alert("❌ Wrong Key Or Key Expired!")
+        end
+
     end
 
-    local key = input[1]
-
-    if isValidKey(key) then
-        saveKey(key)
-        gg.alert("✅ Login Success\nKey Saved!")
-    else
-        gg.alert("❌ Wrong Key")
-        os.exit()
-    end
 end
+
+--==============================
+-- YOUR SCRIPT START HERE
+--==============================
+gg.toast("🚀 Script Loaded Successfully!")
 
 --========================================
 -- ដាក់ SCRIPT របស់អ្នកនៅខាងក្រោម
