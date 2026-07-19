@@ -63,21 +63,7 @@ for i, v in ipairs(results) do
     end
 end
 
-if #editList > 0 then
-    gg.setValues(editList)
-    gg.toast("Success: "..#editList.." Values Edited")
-else
-    gg.alert("Not Found")
-end
 
-gg.clearResults()
-
-        gg.setValues(set)
-        gg.toast("✅ កែរួច + save")
-        gg.alert(m1)
-    end
-            
-        
     
   
       
