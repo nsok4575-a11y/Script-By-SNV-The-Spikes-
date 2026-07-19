@@ -4,7 +4,7 @@ local SAVE_FILE = "/sdcard/.saved_key.txt"
 
 -- 📅 ថ្ងៃផុតកំណត់
 local VALID_KEYS = {
-    ["SCRIPT FREE"] = "2026-08-01",
+    ["SCRIPT FREE"] = "2026-06-01",
     ["NAV2026"] = "2026-09-01",
     ["FREEKEY"] = "2026-10-01"
 }
