@@ -138,9 +138,7 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
   }, nil, title)
 
   if start12 == nil then return end
-
-  -- ===== AUTO WIN =====
-  if start12 == 1 then
+if start12 == 1 then
     gg.setRanges(gg.REGION_OTHER)
 
                     gg.clearResults()
@@ -170,12 +168,8 @@ for i, v in ipairs(results) do
             value = 0
         })
     end
-end
-
-
-    
+        end
   
-      
 if start12 == 2 then
 gg.setRanges(gg.REGION_C_ALLOC)
 
