@@ -139,36 +139,7 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
 
   if start12 == nil then return end
 if start12 == 1 then
-    gg.setRanges(gg.REGION_OTHER)
-
-                    gg.clearResults()
-gg.setRanges(gg.REGION_OTHER)
-
--- ស្វែងរក -1800 (DOUBLE)
-gg.searchNumber("-1800", gg.TYPE_DOUBLE)
-
-local results = gg.getResults(1000)
-
-local editList = {}
-
-for i, v in ipairs(results) do
-    local check = {
-        {
-            address = v.address + 0x20,
-            flags = gg.TYPE_DOUBLE
-        }
-    }
-
-    check = gg.getValues(check)
-
-    if check[1].value == -1 then
-        table.insert(editList, {
-            address = check[1].address,
-            flags = gg.TYPE_DOUBLE,
-            value = 0
-        })
-    end
-        end
+    
   
 if start12 == 2 then
 gg.setRanges(gg.REGION_C_ALLOC)
