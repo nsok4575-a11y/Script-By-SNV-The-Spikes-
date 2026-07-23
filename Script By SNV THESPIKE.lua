@@ -139,8 +139,18 @@ local title = "Script THE Spike Volleyball\n📌 Version: " .. v ..
 
   if start12 == nil then return end
 if start12 == 1 then
+gg.setRanges(gg.REGION_C_ALLOC)
 
-    gg.clearResults()
+  local Ball = gg.multiChoice(
+    {"V1", "V2","🔙 Back"},
+    nil,
+    title
+  )
+
+  if Ball == nil then
+    start()
+    return
+  WS  endd    gg.clearResults()
     gg.setRanges(gg.REGION_OTHER)
 
     -- ស្វែងរក -1800 (DOUBLE)
