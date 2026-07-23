@@ -150,7 +150,8 @@ gg.setRanges(gg.REGION_C_ALLOC)
   if Ball == nil then
     start()
     return
-  WS  endd    gg.clearResults()
+    end    
+        gg.clearResults()
     gg.setRanges(gg.REGION_OTHER)
 
     -- ស្វែងរក -1800 (DOUBLE)
