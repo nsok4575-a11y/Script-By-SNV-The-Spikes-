@@ -1,24 +1,18 @@
 local SAVE_FILE = "/sdcard/.saved_key.txt"
 
---==============================
--- VALID KEYS + EXPIRE DATE
---==============================
+
 local VALID_KEYS = {
     ["SCRIPT FREE"] = "2026-01-01",
     ["NAV2026"] = "2026-09-01",
     ["FREEKEY"] = "2026-10-01"
 }
 
---==============================
--- DELETE SAVED KEY
---==============================
+
 local function deleteSavedKey()
     os.remove(SAVE_FILE)
 end
 
---==============================
--- CHECK VALID KEY + EXPIRE
---==============================
+
 local function isValidKey(key)
     local expire = VALID_KEYS[key]
 
@@ -37,9 +31,7 @@ local function isValidKey(key)
     return true
 end
 
---==============================
--- READ SAVED KEY
---==============================
+
 local function readSavedKey()
     local file = io.open(SAVE_FILE, "r")
 
@@ -57,9 +49,7 @@ local function readSavedKey()
     return nil
 end
 
---==============================
--- SAVE KEY
---==============================
+
 local function saveKey(key)
     local file = io.open(SAVE_FILE, "w")
 
@@ -69,9 +59,7 @@ local function saveKey(key)
     end
 end
 
---==============================
--- LOGIN SYSTEM
---==============================
+
 local savedKey = readSavedKey()
 
 if savedKey and isValidKey(savedKey) then
