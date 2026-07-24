@@ -172,6 +172,42 @@ gg.setRanges(gg.REGION_C_ALLOC)
 
     gg.clearResults()
         end
+        if Ball[2] then
+        gg.clearResults()
+    gg.setRanges(gg.REGION_OTHER)
+
+    -- ស្វែងរក -1800 (DOUBLE)
+    gg.searchNumber("-5000", gg.TYPE_DOUBLE)
+
+    local results = gg.getResults(1000)
+    local editList = {}
+
+    for i, v in ipairs(results) do
+        local check = gg.getValues({
+            {
+                address = v.address + 0x20,
+                flags = gg.TYPE_DOUBLE
+            }
+        })
+
+        if check[1].value == -1 then
+            table.insert(editList, {
+                address = check[1].address,
+                flags = gg.TYPE_DOUBLE,
+                value = 0
+            })
+        end
+    end
+
+    if #editList > 0 then
+        gg.setValues(editList)
+        gg.toast("Edited: " .. #editList)
+    else
+        gg.toast("No matching values found")
+    end
+
+    gg.clearResults()
+        end
   
 if start12 == 2 then
 gg.setRanges(gg.REGION_C_ALLOC)
