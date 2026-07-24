@@ -1,6 +1,5 @@
 
 
-gg.toast("🚀 Script Loaded Successfully!")
 
 
 function start()
