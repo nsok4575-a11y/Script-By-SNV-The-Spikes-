@@ -1,7 +1,5 @@
 
---==============================
--- YOUR SCRIPT START HERE
---==============================
+
 gg.toast("🚀 Script Loaded Successfully!")
 
 
