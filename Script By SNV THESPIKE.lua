@@ -171,7 +171,7 @@ gg.setRanges(gg.REGION_C_ALLOC)
     end
 
     gg.clearResults()
-        
+        end
   
 if start12 == 2 then
 gg.setRanges(gg.REGION_C_ALLOC)
