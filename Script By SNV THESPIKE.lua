@@ -1,4 +1,4 @@
-
+gg.alert("❌ Wrong Key Or Key Expired!")
 local SAVE_FILE = "/sdcard/.saved_key.txt"
 
 
