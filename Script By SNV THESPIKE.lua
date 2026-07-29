@@ -220,7 +220,7 @@ end
 
 gg.clearResults()
         end
-  
+    end
 
 
   if start12 == 3 then
