@@ -276,10 +276,10 @@ gg.clearResults()
 -- 🏐 Mode 1 (WS)
 -- =====================================================================
 if Ball[1] then
-  local offset = {-0x10,-0xE0,-0x40,-0x50,-0xA0}
-  local value_offset1 = -0x10
-  local value_offset2 = {-0x40}
-  local value_offset3 = {-0xE0}
+  local offset = {-0x20,-0xB0,-0xC0,0x10,0xB0}
+  local value_offset1 = -0x20
+  local value_offset2 = {-0xB0}
+  local value_offset3 = {-0xC0}
 
   local expected_value2 = {
     5,10,15,20,25,30,35,40,45,50,
@@ -388,10 +388,11 @@ if Ball[1] then
 end
 if Ball[2] then
 
-  local offset = {-0x10,-0xE0,-0x40,-0x50,-0xA0}
-  local value_offset1 = -0x10
-  local value_offset2 = {-0x40}
-  local value_offset3 = {-0xE0}
+  local offset = {-0x20,-0xB0,-0xC0,0x10,0xB0}
+  local value_offset1 = -0x20
+  local value_offset2 = {-0xB0}
+  local value_offset3 = {-0xC0}
+
 
 -- ✅ Expected values
 local expected_value2 = {
@@ -532,11 +533,11 @@ local expected_value2 = {
   end
   
   if Ball[3] then
-local offset = {-0x100,-0xE0,-0x90,-0xF0,-0xC0,-0xA0,-0x70}
-  local value_offset1 = -0x100
-  local value_offset2 = {-0xE0}
-  local value_offset3 = {-0x90}
--- ✅ Expected values
+local offset = {-0x20,-0xB0,-0xC0,0x10,0xB0}
+  local value_offset1 = -0x20
+  local value_offset2 = {-0xB0}
+  local value_offset3 = {-0xC0}
+
 local expected_value2 = {
   5,10,15,20,25,30,35,40,45,50,
   55,60,65,70,75,80,85,90,95
