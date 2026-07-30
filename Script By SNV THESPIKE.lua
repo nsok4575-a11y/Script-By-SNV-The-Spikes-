@@ -258,7 +258,7 @@ gg.clearResults()
     end
 
 
-  if start12 == 3 then
+  if start12 == 4 then
   gg.setRanges(gg.REGION_C_ALLOC)
 
   local Ball = gg.multiChoice(
@@ -684,7 +684,7 @@ end
 
 
 end -- end start12 == 3
-if start12 == 4 then
+if start12 == 5 then
     gg.setRanges(gg.REGION_C_ALLOC)
 gg.clearResults()
 
@@ -793,7 +793,7 @@ end
 
 start()
 end
-if start12 == 5 then
+if start12 == 6 then
 
 gg.setRanges(gg.REGION_OTHER)
 
@@ -891,7 +891,7 @@ else
 end
 
 end
-if start12 == 6 then
+if start12 == 7 then
 
 gg.setRanges(gg.REGION_OTHER)
 
@@ -988,7 +988,7 @@ else
 end
 
 end
-    if start12 == 7 then
+    if start12 == 8 then
 
     gg.setRanges(gg.REGION_OTHER)
 
@@ -1055,7 +1055,7 @@ end
 
     gg.clearResults()
 end
-        if start12 == 8 then
+        if start12 == 9 then
     gg.alert("👋 ចាកចេញពី Script!")
     os.exit()
   end
