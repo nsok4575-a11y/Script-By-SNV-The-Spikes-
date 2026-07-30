@@ -434,7 +434,7 @@ local expected_value2 = {
       ["1"] = -1, -- Raul
       ["2"] = 18,  -- Nishikawa HS
       ["3"] = 1,  -- Ryuhyeon
-      ["4"] = -1,  -- Lucas
+      ["4"] = 21,  -- Lucas
       ["5"] = -1,  -- Black Nishikawa
       ["6"] = -1, --Isabel
       ["7"] = -1, --Jeahyeon
@@ -568,7 +568,8 @@ local expected_value2 = {
       ["3"] = 323,
       ["4"] = 252,
       ["5"] = 313,
-      ["6"] = 40
+      ["6"] = 40,
+      ["7"] = 157              
     
     }
 
@@ -579,7 +580,7 @@ local values1 = {
       ["4"] = -1,  -- Lucas
       ["5"] = -1,  -- Black Nishikawa
       ["6"] = 13, --Isabel
-      ["7"] = -1, --Jeahyeon
+      ["7"] = 20, --Jeahyeon
       ["8"] = -1--Siwoo
 }
     local searchValue = tonumber(k2[1])
@@ -597,8 +598,7 @@ local values1 = {
       editValue1,  
       editValue2,  
       5,  
-      editValue1,  
-      editValue2,
+      
       values1[character]
     }  
 
