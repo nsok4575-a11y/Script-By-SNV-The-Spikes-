@@ -276,7 +276,7 @@ gg.clearResults()
 -- 🏐 Mode 1 (WS)
 -- =====================================================================
 if Ball[1] then
-  local offset = {-0x20,-0xB0,-0xC0,0x10,0xB0}
+  local offset = {-0x20,-0xB0,-0xC0,0x10,-0xA0}
   local value_offset1 = -0x20
   local value_offset2 = {-0xB0}
   local value_offset3 = {-0xC0}
