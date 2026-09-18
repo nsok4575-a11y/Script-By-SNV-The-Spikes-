@@ -2,96 +2,84 @@
 --   SIMPLE KEY SYSTEM + EXPIRE DATE
 --   Save Key Auto Login
 --========================================
+    -- ==============================
+-- TELEGRAM BOT
+-- ==============================
 
-local SAVE_FILE = "/sdcard/.saved_key.txt"
+local BOT_TOKEN = "8747183722"
+local CHAT_ID = "AAEm5uUAz1yrDjwOjhoJlJfL-tgb7c7hnqw"
 
--- 📅 ថ្ងៃផុតកំណត់
-local EXPIRE_DATE = "2026-06-01"
 
--- 🔑 Key ត្រឹមត្រូវ
-local VALID_KEYS = {
-    "SCRIPT FREE",
-    "NAV2026",
-    "FREEKEY"
-}
+-- ==============================
+-- SEND NAME TO TELEGRAM
+-- ==============================
 
---==============================
--- CHECK EXPIRE DATE
---==============================
-local function isExpired()
-    local today = os.date("%Y-%m-%d")
-    return today > EXPIRE_DATE
+local function sendNameToTelegram(name)
+
+    local message =
+        "📥 New User\n" ..
+        "👤 Name : " .. name
+
+    local url =
+        "https://api.telegram.org/bot" ..
+        BOT_TOKEN ..
+        "/sendMessage?chat_id=" ..
+        CHAT_ID ..
+        "&text=" ..
+        message
+
+    local response = gg.makeRequest(url)
+
+    return response ~= nil
 end
 
-if isExpired() then
-    gg.alert("⛔ Script Expired!\nExpire Date : "..EXPIRE_DATE)
+
+-- ==============================
+-- LOGIN / NAME SYSTEM
+-- ==============================
+
+local input = gg.prompt(
+    {"👤 Enter Your Name :"},
+    {""},
+    {"text"}
+)
+
+if input == nil then
     os.exit()
 end
 
---==============================
--- CHECK VALID KEY
---==============================
-local function isValidKey(input)
-    for i,v in ipairs(VALID_KEYS) do
-        if input == v then
-            return true
-        end
-    end
-    return false
+local name = input[1]
+
+if name == "" then
+    gg.alert("❌ Please enter your name")
+    os.exit()
 end
 
---==============================
--- READ SAVED KEY
---==============================
-local function readSavedKey()
-    local file = io.open(SAVE_FILE, "r")
-    if file then
-        local key = file:read("*a")
-        file:close()
-        return key
-    end
-    return nil
-end
 
---==============================
--- SAVE KEY
---==============================
-local function saveKey(key)
-    local file = io.open(SAVE_FILE, "w")
-    if file then
-        file:write(key)
-        file:close()
-    end
-end
+-- ផ្ញើឈ្មោះទៅ Telegram
+local sent = sendNameToTelegram(name)
 
---==============================
--- LOGIN SYSTEM
---==============================
-local savedKey = readSavedKey()
-
-if savedKey and isValidKey(savedKey) then
-    gg.toast("✅ Auto Login Success")
-else
-    local input = gg.prompt(
-        {"🔑 Enter Key :"},
-        {""},
-        {"text"}
+if sent then
+    gg.alert(
+        "✅ Success!\n\n" ..
+        "👤 Name : " .. name ..
+        "\n📨 Sent to Telegram"
     )
-
-    if input == nil then
-        os.exit()
-    end
-
-    local key = input[1]
-
-    if isValidKey(key) then
-        saveKey(key)
-        gg.alert("✅ Login Success\nKey Saved!")
-    else
-        gg.alert("❌ Wrong Key")
-        os.exit()
-    end
+else
+    gg.alert(
+        "⚠️ Name received\n" ..
+        "ប៉ុន្តែផ្ញើទៅ Telegram មិនបាន"
+    )
 end
+
+
+-- ==============================
+-- MAIN MENU
+-- ==============================
+
+-- ដាក់ Script របស់អ្នកនៅទីនេះ
+    
+
 
 --========================================
 -- ដាក់ SCRIPT របស់អ្នកនៅខាងក្រោម
