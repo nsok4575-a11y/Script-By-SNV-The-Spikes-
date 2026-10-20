@@ -71,7 +71,7 @@ end
 
 if selectedScore == nil then  
 
-    selectedScore = 0  
+    selectedScore = 1  
 
 end  
 
