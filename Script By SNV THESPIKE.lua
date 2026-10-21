@@ -560,7 +560,7 @@ function editScore()
 
     if selectedScore == nil then
 
-        selectedScore = 15
+        selectedScore = 1
 
     end
 
