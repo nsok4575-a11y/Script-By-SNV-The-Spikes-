@@ -2,7 +2,7 @@
 
        selectedScore = 1
 
-
+end
 local EDIT_OFFSET = 0x60
 local editList = {}
 
