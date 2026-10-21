@@ -1,4 +1,8 @@
-local selectedScore = 1
+    if selectedScore == nil then
+
+        selectedScore = 15
+
+end
 local EDIT_OFFSET = 0x60
 local editList = {}
 
