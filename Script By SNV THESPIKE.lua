@@ -1,6 +1,6 @@
     if selectedScore == nil then
 
-      local  selectedScore = 1
+       selectedScore = 
 
 
 local EDIT_OFFSET = 0x60
